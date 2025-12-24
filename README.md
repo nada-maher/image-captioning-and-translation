@@ -2,29 +2,40 @@
 This project combines image captioning using the BLIP model and English → Arabic translation using a fine-tuned mBART-50 model.
 The system runs through a simple Gradio web interface, allowing you to upload an image and receive the caption in English or Arabic.
 
-🌟 Features
+🚀 Features
 
-✔ Generate accurate English captions from images using BLIP
-✔ Translate captions to Arabic using fine-tuned mBART-50
-✔ Easy-to-use Gradio interface
-✔ Works on CPU & GPU
-✔ Fully reproducible and customizable pipeline
+📷 Upload an image and automatically generate a caption
+
+🧠 Uses a fine-tuned BLIP model for English captions
+
+🌍 Uses a fine-tuned mBART model for English → Arabic translation
+
+🖥️ Clean Gradio UI
+
+🗂️ Organized project structure
+
+🔧 Easy to run locally or on cloud platforms
+
 
 📂 Project Directory Structure
 .
 ├── app.py                        # Main Gradio application
+│
 ├── mbart_en_ar_model/            # Fine-tuned mBART model
 │   ├── config.json
 │   ├── tokenizer.json
 │   ├── pytorch_model.bin
 │   └── ...
-├── blip/                          # Fine-tuned BLIP model (if saved locally)
+│
+├── blip/                         # Fine-tuned BLIP model
 │   ├── config.json
 │   ├── processor_config.json
 │   ├── tokenizer.json
 │   ├── pytorch_model.bin
 │   └── ...
-├── samples/                       # Optional sample images
+│
+├── samples/                      # Optional sample images
+│
 ├── README.md
 └── requirements.txt
 
