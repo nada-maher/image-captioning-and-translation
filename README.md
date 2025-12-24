@@ -13,20 +13,23 @@ The system runs through a simple Gradio web interface, allowing you to upload an
 📂 Project Directory Structure
 .
 ├── app.py                        # Main Gradio application
-├── mbart_en_ar_model/            # Your fine-tuned mBART model directory
+├── mbart_en_ar_model/            # Fine-tuned mBART model
 │   ├── config.json
 │   ├── tokenizer.json
 │   ├── pytorch_model.bin
 │   └── ...
-|__ blilb
-|__ ├── config.json
+├── blip/                          # Fine-tuned BLIP model (if saved locally)
+│   ├── config.json
+│   ├── processor_config.json
 │   ├── tokenizer.json
 │   ├── pytorch_model.bin
 │   └── ...
+├── samples/                       # Optional sample images
 ├── README.md
-|__ samples 
+└── requirements.txt
 
 🧠 Models Used
+
 🔹 1. BLIP — Image Captioning
 
 Pretrained model: Salesforce/blip-image-captioning-base
@@ -75,6 +78,7 @@ Then open the URL that appears:
 http://127.0.0.1:7860
 
 🖼 Application Workflow
+
 1️⃣ Upload Image
 
 User uploads an image via Gradio.
