@@ -1,4 +1,4 @@
-Image Captioning & Translation using BLIP + mBART
+#Image Captioning & Translation using BLIP + mBART
 
 This project implements an AI-powered image captioning system that generates descriptive captions from images and optionally translates them into Arabic. It uses a hybrid pipeline combining BLIP for image caption generation and mBART-50 for multilingual translation.
 
