@@ -1,147 +1,142 @@
-# image-captioning-and-translation
-This project combines image captioning using the BLIP model and English → Arabic translation using a fine-tuned mBART-50 model.
-The system runs through a simple Gradio web interface, allowing you to upload an image and receive the caption in English or Arabic.
+Image Captioning & Translation using BLIP + mBART
 
-🚀 Features
+This project implements an AI-powered image captioning system that generates descriptive captions from images and optionally translates them into Arabic. It uses a hybrid pipeline combining BLIP for image caption generation and mBART-50 for multilingual translation.
 
-📷 Upload an image and automatically generate a caption
+The goal of the project is to explore vision–language models and understand how image understanding can be integrated with neural machine translation to produce coherent captions in multiple languages.
 
-🧠 Uses a fine-tuned BLIP model for English captions
+Project Overview
 
-🌍 Uses a fine-tuned mBART model for English → Arabic translation
+Built an image-to-text captioning system using BLIP (Bootstrapping Language-Image Pre-training)
 
-🖥️ Clean Gradio UI
+Integrated mBART-50 for English → Arabic translation
 
-🗂️ Organized project structure
+Trained and fine-tuned mBART on a bilingual English–Arabic dataset
 
-🔧 Easy to run locally or on cloud platforms
+Designed a simple Gradio-based web interface
 
+Supports caption generation in English or Arabic
 
-🧠 Models Used
+Enables real-time image upload and caption prediction
 
-🔹 1. BLIP — Image Captioning
+Key Concepts
 
-Pretrained model: Salesforce/blip-image-captioning-base
+Computer Vision
 
-Generates high-quality English captions from raw images.
+Natural Language Processing (NLP)
 
-🔹 2. mBART-50 — English → Arabic Translation
+Image Captioning
 
-Base model: facebook/mbart-large-50-many-to-many-mmt
+Transformer Models
 
-You fine-tuned it on your parallel EN→AR dataset.
+Vision–Language Models
 
-Loaded locally from:
+Neural Machine Translation (NMT)
 
-mbart_en_ar_model/
+Text Tokenization and Sequence Generation
 
-🛠 Installation
-1️⃣ Clone the repository
-git clone <your-repo-url>
-cd <your-project-folder>
+Model Fine-Tuning
 
-2️⃣ Install dependencies
-pip install -r requirements.txt
+Model Architecture
+1. BLIP — Image Encoder & Caption Generator
 
+Extracts visual features from the input image
 
-If requirements.txt is missing, use this one:
+Generates an initial English description
 
-torch
-transformers
-gradio
+Provides high-quality captions with vision–text attention
 
+2. mBART-50 — Machine Translation
 
-For GPU installation:
+Receives the English caption from BLIP
 
-pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
+Translates it into Arabic using a fine-tuned many-to-many model
 
-🚀 Running the Application
+Handles tokenization, sequence generation, and decoding
 
-Run Gradio:
+3. Combined Pipeline
+Image → BLIP → English Caption → mBART (optional) → Arabic Caption
 
-python app.py
+Dataset (for Translation Fine-Tuning)
 
+The mBART model was fine-tuned on a parallel English–Arabic dataset.
 
-Then open the URL that appears:
+Preprocessing steps included:
 
-http://127.0.0.1:7860
+Lowercasing
 
-🖼 Application Workflow
+Removing special characters
 
-1️⃣ Upload Image
+Text normalization
 
-User uploads an image via Gradio.
+Tokenization
 
-2️⃣ BLIP Generates English Caption
-inputs = blip_processor(images=image, return_tensors="pt").to(device)
-output_ids = blip_model.generate(**inputs)
-english_caption = blip_processor.decode(output_ids[0], skip_special_tokens=True)
+Padding and truncation
 
-3️⃣ mBART Translates to Arabic (optional)
-tokens = mbart_tokenizer(english_caption, return_tensors="pt").to(device)
-arabic_ids = mbart_model.generate(**tokens)
-arabic_caption = mbart_tokenizer.decode(arabic_ids[0], skip_special_tokens=True)
+Building DataLoader for batches
 
-🎮 Gradio Interface (UI)
+Results
 
-You can switch between:
+Generates accurate and coherent English captions from images
 
-English caption
+Produces high-quality Arabic translations of the generated captions
 
-Arabic translation
+Demonstrates the strength of combining vision–language and NMT models
 
-The UI allows real-time captioning and translation.
+Fully deployable through a Gradio GUI
 
-🧪 Example Output
-Input Image
+GUI Access
 
-English Caption
+A simple and interactive GUI was built using Gradio:
 
-"A brown dog running across a grassy field."
+Upload an image
 
-Arabic Translation
+Choose the output language (English or Arabic)
 
-"كلب بني يجري عبر حقل عشبي."
+Receive a generated caption instantly
 
-🧵 Training Summary for mBART-50
+Project Directory Structure
+📂 Project Directory Structure
+.
+├── app.py                      # Main Gradio application
+│
+├── mbart_en_ar_model/          # Fine-tuned mBART model
+│   ├── config.json
+│   ├── tokenizer.json
+│   ├── pytorch_model.bin
+│   └── ...
+│
+├── blip/                       # Fine-tuned BLIP model (optional if saved locally)
+│   ├── config.json
+│   ├── processor_config.json
+│   ├── tokenizer.json
+│   ├── pytorch_model.bin
+│   └── ...
+│
+├── samples/                    # Sample input images
+│
+├── README.md
+└── requirements.txt
 
-You trained the model using a dataset containing:
+Team Members
 
-en → English sentence
+Nada Maher
 
-ar → Arabic translation
+Mohamed Elhady
 
-Core preprocessing logic:
+Future Improvements
 
-labels = input_ids.clone()
-labels[labels == tokenizer.pad_token_id] = -100
+Add support for more output languages
 
+Improve translation accuracy with larger bilingual datasets
 
-Why -100?
-Because PyTorch’s CrossEntropyLoss ignores -100, so padding tokens don’t affect training.
+Fine-tune BLIP for custom domain captioning
 
-🛣 Future Improvements
+Add temperature, top-k, and top-p sampling controls
 
- Add Arabic → English translation
+Deploy on HuggingFace Spaces or a custom web server
 
- Fine-tune BLIP for Arabic
+Add support for GPU-accelerated inference in production
 
- Add attention heatmap visualization
+License
 
- Deploy app to HuggingFace Spaces
-
- Add multiple language options
-
-📜 License
-
-This project is licensed under the MIT License.
-
-🙌 Acknowledgements
-
-Salesforce Research for BLIP
-
-Meta AI for mBART-50
-
-HuggingFace for model hub + transformers
-
-Gradio for UI framework
+This project is created for educational and research purposes.
