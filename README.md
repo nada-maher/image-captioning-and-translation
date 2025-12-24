@@ -19,7 +19,7 @@ The system runs through a simple Gradio web interface, allowing you to upload an
 
 📂 Project Directory Structure
 .
-├── app.py                      # Main Gradio application
+├── app.py                      # Main Gradio application//
 │
 ├── mbart_en_ar_model/          # Fine-tuned mBART model
 │   ├── config.json
