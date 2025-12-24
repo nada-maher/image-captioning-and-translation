@@ -94,34 +94,15 @@ Choose the output language (English or Arabic)
 
 Receive a generated caption instantly
 
-Project Directory Structure
-📂 Project Directory Structure
-.
-├── app.py                      # Main Gradio application
-│
-├── mbart_en_ar_model/          # Fine-tuned mBART model
-│   ├── config.json
-│   ├── tokenizer.json
-│   ├── pytorch_model.bin
-│   └── ...
-│
-├── blip/                       # Fine-tuned BLIP model (optional if saved locally)
-│   ├── config.json
-│   ├── processor_config.json
-│   ├── tokenizer.json
-│   ├── pytorch_model.bin
-│   └── ...
-│
-├── samples/                    # Sample input images
-│
-├── README.md
-└── requirements.txt
-
 Team Members
 
-Nada Maher
+Nada Maher Mohamed El-hady
 
-Mohamed Elhady
+Hanaa Mahmoud Ahmed
+
+Hager Khaled Ibrahim
+
+Menna Allah Elsaeed
 
 Future Improvements
 
@@ -132,10 +113,6 @@ Improve translation accuracy with larger bilingual datasets
 Fine-tune BLIP for custom domain captioning
 
 Add temperature, top-k, and top-p sampling controls
-
-Deploy on HuggingFace Spaces or a custom web server
-
-Add support for GPU-accelerated inference in production
 
 License
 
