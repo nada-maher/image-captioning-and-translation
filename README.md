@@ -17,27 +17,28 @@ The system runs through a simple Gradio web interface, allowing you to upload an
 🔧 Easy to run locally or on cloud platforms
 
 
-📂 Project Directory Structure/
+📂 Project Directory Structure
 .
-├── app.py                        # Main Gradio application/
+├── app.py                      # Main Gradio application
 │
-├── mbart_en_ar_model/            # Fine-tuned mBART model
+├── mbart_en_ar_model/          # Fine-tuned mBART model
 │   ├── config.json
 │   ├── tokenizer.json
 │   ├── pytorch_model.bin
 │   └── ...
 │
-├── blip/                         # Fine-tuned BLIP model
+├── blip/                       # Fine-tuned BLIP model
 │   ├── config.json
 │   ├── processor_config.json
 │   ├── tokenizer.json
 │   ├── pytorch_model.bin
 │   └── ...
 │
-├── samples/                      # Optional sample images
+├── samples/                    # Optional sample images
 │
 ├── README.md
 └── requirements.txt
+
 
 🧠 Models Used
 
